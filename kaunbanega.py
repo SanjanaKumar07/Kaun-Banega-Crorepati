@@ -7,7 +7,7 @@ import tkinter
 import cv2
 import PIL.Image, PIL.ImageTk
 amount=5000
-
+ 
 def wow():
     print("in option")
     top=Toplevel()
@@ -17,7 +17,7 @@ def wow():
     t.insert(END,"LOCK KIYA JAE?")
     tot=Button(top,text="HAAN",width=12,command=check,activeforeground='black',bg='light cyan',font=('Airal',12))
     tot.place(x=8,y=30)
-
+ 
 def check():
     print("in check")
     global option
@@ -41,7 +41,7 @@ def check():
             t.insert(END,"YOU WIN")
         
         
-
+ 
     else:
         #messageVar1["text"]="game over"
         #print("wrong answer")
@@ -51,10 +51,10 @@ def check():
         t.pack()
         t.insert(END,"GAME OVER")
         currentLevel = 100
-
+ 
     if(option==0):
         butt1["bg"]="green"
-
+ 
     elif(option==1):
         butt2["bg"]="green"
     elif(option==2):
@@ -64,7 +64,7 @@ def check():
     
     
     return
-
+ 
 def nextq():
     global option
     global currentLevel
@@ -87,9 +87,8 @@ def nextq():
     butt3["bg"]="black"
     butt4["bg"]="black"
     
-
-
-
+ 
+ 
     questionsInLevel = Questions[currentLevel].keys()
     questionsInLevel = list(questionsInLevel)
     currentQuestionIndex = randint(0,len(questionsInLevel)-1)
@@ -108,13 +107,13 @@ def nextq():
     butt4.place(x=760,y=660)
     if(amount==640000):
         amount=amount+610000
-
+ 
     else:
         amount=2*amount
-
+ 
     messageVar3["text"]=amount
-
-
+ 
+ 
 def start():
     global option
     global currentLevel
@@ -141,10 +140,10 @@ def start():
     butt4["text"] = Questions[currentLevel][currentQuestion][1][3]
     butt4.place(x=760,y=660)
     start.destroy()
-
+ 
     
-
-
+ 
+ 
 window = Tk()
 window.title("OpenCV and Tkinter")
 cv_img = cv2.cvtColor(cv2.imread("xoxo.jpg"), cv2.COLOR_BGR2RGB)
@@ -153,7 +152,7 @@ canvas = tkinter.Canvas(window, width = width, height = height)
 canvas.pack()
 photo = PIL.ImageTk.PhotoImage(image = PIL.Image.fromarray(cv_img))
 canvas.create_image(0, 0, image=photo, anchor=tkinter.NW)
-
+ 
 Questions = {1:{"What is the indian currency?":[3,["DOLLAR","YEN","EURO","RUPEE"]],
                 "Who is the host of KBC":[2,["SRK","SALMAN","AMITABH","AMIR"]],
                 "The smallest planet is?":[2,["JUPITER","SATURN","PLUTO","VENUS"]]},
@@ -202,7 +201,7 @@ def option1():
     option = 0
     wow()
     return
-
+ 
 def option2():
     global option
     option = 1
@@ -214,13 +213,13 @@ def option3():
     option = 2
     wow()
     return
-
+ 
 def option4():
     global option
     option = 3
     wow()
     return
-
+ 
 def fiftysneak(Questions,currentLevel,currentQuestion):
     x=Questions[currentLevel][currentQuestion][1]
     x=list(x)
@@ -264,13 +263,13 @@ currentLevel = 1
 #print(Questions[currentLevel][currentQuestion][1])
 #print(Questions[currentLevel][currentQuestion][0])  
 #x = Questions[currentLevel][currentQuestion][0]
-#_____________________
-
+#_______
+ 
 messageVar1=Message(window)
 messageVar1["text"]="Your Question"
 messageVar1.config(bg='black',fg='white',font=('Airal',25),width=width)
 messageVar1.place(x=400,y=505)
-
+ 
 butt1=Button(window,command=option1,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
 butt1["text"] = "Option A"
 butt1.place(x=370,y=600)
@@ -293,7 +292,7 @@ nextq.place(x=500,y=30)
 start=Button(window,text="start",command=start,activeforeground='white',bg='black',activebackground='goldenrod1',fg='white',font=('Airal',12))
 start.pack()
 start.place(x=300,y=30)
-
+ 
 messageVar2=Message(window,text="₹")
 messageVar2.config(bg='black',fg='white',font=('Airal',18),width=width)
 messageVar2.place(x=630,y=30)
